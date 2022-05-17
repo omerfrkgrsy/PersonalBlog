@@ -28,16 +28,15 @@ public partial class PersonalBlogDbContext : Microsoft.EntityFrameworkCore.DbCon
                 optionsBuilder.UseNpgsql("User ID=postgres;Password=1234;Server=localhost;Port=5432;Database=BlogDB;Integrated Security=true;Pooling=true;");
             }
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasPostgresExtension("uuid-ossp");
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.HasPostgresExtension("uuid-ossp");
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-    }
-
-    public override int SaveChanges()  
-        {  
-            ChangeTracker.DetectChanges();  
-            return base.SaveChanges();  
-        }  
-    }
+        public override int SaveChanges()  
+            {  
+                ChangeTracker.DetectChanges();  
+                return base.SaveChanges();  
+            }  
+        }

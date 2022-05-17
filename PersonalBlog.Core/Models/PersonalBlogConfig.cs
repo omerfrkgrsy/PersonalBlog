@@ -15,6 +15,6 @@ public class PersonalBlogConfig
     #endregion
     public PersonalBlogConfig()
     {
-        PrivateKey = "+IfWDqELQ2zBE6sI4D4ncSMBvTagujpBx0b5uieu8jI=æXB2DUtejEziVgiBPkRSahA==";
+        PrivateKey = "generatedkey";
     }
 }

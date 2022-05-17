@@ -1,4 +1,5 @@
 ﻿using PersonalBlog.Core;
+using PersonalBlog.DataAccess.PartialEntities;
 
 namespace PersonalBlog.DataAccess;
 
@@ -14,6 +15,8 @@ public class User:BaseEntity
     public string LastName { get; set; }
     public string Mobile { get; set; }
     public string Email { get; set; }
+
+    [CryptoData]
     public string PasswordHash { get; set; }
     public DateTime RegisteredAt { get; set; }
     public DateTime? LastLogin { get; set; }
