@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using PersonalBlog.Business.Abstract;
+using PersonalBlog.Dto.Dto;
 
 namespace PersonalBlog.Api.Controllers
 {
@@ -6,9 +8,21 @@ namespace PersonalBlog.Api.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-
-        public UserController()
+        private readonly IUserService _userService; 
+        public UserController(IUserService userService)
         {
+            _userService = userService;
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterDto loginDto)
+        {
+            var res = await _userService.Register(loginDto);
+            if (!res)
+            {
+                return BadRequest(res);
+            }
+            return Ok(res);
         }
 
     }

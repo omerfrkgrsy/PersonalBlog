@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Repository.EntityFramework.Abstract
 {
-    interface IUserRepository:IRepository<User>
+    public interface IUserRepository:IRepository<User>
     {
     }
 }

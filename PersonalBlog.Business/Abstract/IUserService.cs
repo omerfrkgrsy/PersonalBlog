@@ -1,4 +1,5 @@
 ﻿using PersonalBlog.DataAccess;
+using PersonalBlog.Dto.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Business.Abstract
 {
-    interface IUserService
+    public interface IUserService
     {
-        //public User RegisterUser(UserD user);
+        Task<bool> Register(RegisterDto userRegisterDto);
 
     }
 }

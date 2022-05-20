@@ -75,8 +75,10 @@ public class EfRepository<T>: IRepository<T> where T : BaseEntity
         return Entities.AsQueryable();
     }
 
-    public async Task<bool> UpdateMatchEntity(T updateEntity, T setEntity, bool isEncrypt = false)
+    public async Task<bool> UpdateMatchEntity(T updateEntity,int key, bool isEncrypt = false)
     {
+        T setEntity = await GetByIdAsync(key);
+
         if (setEntity == null)
             throw new ArgumentNullException(nameof(setEntity));
 

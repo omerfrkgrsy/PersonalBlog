@@ -8,7 +8,7 @@ public interface IRepository<T> where T : BaseEntity
 {
     Task<T> GetByIdAsync(int id);
     Task<bool> InsertAsync(T entity, bool isEncrypt = false);        
-    Task<bool> UpdateMatchEntity(T updateEntity, T setEntity, bool isEncrypt = false);
+    Task<bool> UpdateMatchEntity(T updateEntity,int key, bool isEncrypt = false);
     Task<bool> DeleteAsync(T entity);
     Task<bool> DeleteAsync(IEnumerable<T> entities);
     Task<int> SaveAsync();

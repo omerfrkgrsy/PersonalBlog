@@ -2,7 +2,7 @@
 
 namespace PersonalBlog.Core;
 
-public class BaseEntity
+public class BaseEntity:IEntity
 {
     private DateTime dateTime;
     [NotMapped]

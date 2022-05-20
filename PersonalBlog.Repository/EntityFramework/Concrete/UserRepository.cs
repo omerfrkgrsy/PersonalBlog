@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Repository.EntityFramework.Concrete
 {
-    internal class UserRepository:EfRepository<User>,IUserRepository
+    public class UserRepository:EfRepository<User>,IUserRepository
     {
         public UserRepository(PersonalBlogDbContext context, IEncryption encryption) :base(context,encryption)
         {
